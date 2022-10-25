@@ -1030,6 +1030,12 @@ class MatchSpecMergeTests(TestCase):
 
     def test_catch_invalid_regexes(self):
         # Crashing case via fuzzing found via fuzzing. Reported here: https://github.com/conda/conda/issues/11999
+<<<<<<< HEAD
         self.assertRaises(InvalidMatchSpec, MatchSpec, ("*/lin(ux-65::f/o>=>1y"))
         # Inspired by above crasher
         self.assertRaises(InvalidMatchSpec, MatchSpec, ("^(aaaa$"))
+=======
+        self.assertRaises(InvalidMatchSpec, MatchSpec, ('*/lin(ux-65::f/o>=>1y'))        
+        # Inspired by above crasher
+        self.assertRaises(InvalidMatchSpec, MatchSpec, ('^(aaaa$'))        
+>>>>>>> 3f8282dfc (Fix regex related crash in MatchSpec)

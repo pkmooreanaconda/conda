@@ -853,7 +853,9 @@ class GlobStrMatch(_StrMatchMixin, MatchInterface):
                 value = re.escape(value).replace('\\*', r'.*')
                 self._re_match = re.compile(r'^(?:%s)$' % value).match
         except re.error as e:
-            raise InvalidMatchSpec(value, f"Contains an invalid regular expression. '{e}'")
+            raise InvalidMatchSpec(value,
+                                   'Contains an invalid regular expression. "%s"' % e)
+            pass
 
     def match(self, other):
         try:
@@ -973,7 +975,9 @@ class ChannelMatch(GlobStrMatch):
                 else:
                     value = Channel(value)
         except re.error as e:
-            raise InvalidMatchSpec(value, f"Contains an invalid regular expression. '{e}'")
+            raise InvalidMatchSpec(value,
+                                   'Contains an invalid regular expression. "%s"' % e)
+
 
         super(GlobStrMatch, self).__init__(value)
 

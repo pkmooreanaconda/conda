@@ -4,7 +4,12 @@
 
 ### Bug fixes
 
+<<<<<<< HEAD
 * Several user facing MatchSpec crashes were identified by fuzzing efforts. (#11999) Apply minimal fixes to deal with these (and similar) crashes. (#12014)
+=======
+* Several user facing crashes were identified by fuzzing efforts (#11999).
+Apply minimal fixes to deal with these (and similar) crashes.
+>>>>>>> 3f8282dfc (Fix regex related crash in MatchSpec)
 
 ### Deprecations
 
