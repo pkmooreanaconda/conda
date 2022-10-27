@@ -314,6 +314,7 @@ class TestVersionSpec(unittest.TestCase):
         # Fuzzer-identified crasher:
         with pytest.raises(InvalidVersionSpec):
             VersionSpec("c +, 0/|0 *")
+<<<<<<< HEAD
 
         # Test for mishandling of '==' without a version number
         with pytest.raises(InvalidVersionSpec):
@@ -323,6 +324,8 @@ class TestVersionSpec(unittest.TestCase):
             VersionSpec(">=")
         with pytest.raises(InvalidVersionSpec):
             VersionSpec("<=")
+=======
+>>>>>>> 1d974e7d8 (Fix crash related to mishandling of local version separator)
 
     def test_compatible_release_versions(self):
         assert VersionSpec("~=1.10").match("1.11.0")

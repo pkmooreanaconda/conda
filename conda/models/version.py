@@ -202,12 +202,11 @@ class VersionOrder(metaclass=SingleStrArgCachingType):
         else:
             raise InvalidVersionSpec(vstr, "duplicated local version separator '+'")
 
-        # Error Case: Version is empty because the version string started with +.
-        # e.g. "+", "1.2", "+a", "+1".
+        # Error Case: Version is empty because the version string started with +.  e.g. "+", "1.2", "+a", "+1".
         # This is an error because specifying only a local version is invalid.
-        # version[0] is empty because vstr.split("+") returns something like ['', '1.2']
+        # version[0] is empty because vstr.split("+") on such a string returns something like ['', '1.2']
         if version[0] == '':
-            raise InvalidVersionSpec(vstr, "Missing version before local version separator '+'")
+            raise InvalidVersionSpec(vstr, "Missing version component before local version separator '+'")
 
         if version[0][-1] == "_":
             # If the last character of version is "-" or "_", don't split that out
